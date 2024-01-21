@@ -1,6 +1,6 @@
 package com.wo.desafioanotaai.repositories;
 
-import jdk.jfr.Category;
+import com.wo.desafioanotaai.domain.category.Category;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
