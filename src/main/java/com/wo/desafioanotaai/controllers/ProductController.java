@@ -3,7 +3,6 @@ package com.wo.desafioanotaai.controllers;
 import com.wo.desafioanotaai.domain.product.Product;
 import com.wo.desafioanotaai.domain.product.ProductDTO;
 import com.wo.desafioanotaai.services.ProductService;
-import jakarta.websocket.server.PathParam;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,13 +31,13 @@ public class ProductController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Product> update(@PathParam("id") String id, @RequestBody ProductDTO productData) {
+    public ResponseEntity<Product> update(@PathVariable String id, @RequestBody ProductDTO productData) {
         Product updatedProduct = this.service.update(id, productData);
         return ResponseEntity.ok().body(updatedProduct);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Product> delete(@PathParam("id") String id) {
+    public ResponseEntity<Product> delete(@PathVariable String id) {
         this.service.delete(id);
         return ResponseEntity.noContent().build();
     }
